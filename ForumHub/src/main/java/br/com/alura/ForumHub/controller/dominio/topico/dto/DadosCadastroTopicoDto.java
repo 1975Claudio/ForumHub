@@ -13,7 +13,13 @@ public record DadosCadastroTopicoDto(
         @NotNull
         Long id,
 
-        String titulo) {
+        String titulo,
+        String mensagem,
+        String status,
+String curso_id)
+
+{
+
 
 }
 

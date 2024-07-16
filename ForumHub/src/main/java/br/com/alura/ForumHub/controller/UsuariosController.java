@@ -2,8 +2,8 @@ package br.com.alura.ForumHub.controller;
 
 import br.com.alura.ForumHub.controller.dominio.usuario.GerenciadorUsuarioService;
 import br.com.alura.ForumHub.controller.dominio.usuario.UsuarioRepository;
-import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosDetalhamentoUsuariosDTO;
-import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosExclusaoUsuarioDTO;
+import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosDetalhamentoUsuarioDto;
+import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosExclusaoUsuarioDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +25,8 @@ public class UsuariosController {
 
     @GetMapping
     public ResponseEntity listarUsuarios(){
-        List<DadosDetalhamentoUsuariosDTO> usuarios = repository.findAllByAtivoTrue()
-                .stream().map(DadosDetalhamentoUsuariosDTO::new)
+        List<DadosDetalhamentoUsuarioDto> usuarios = repository.findAllByAtivoTrue()
+                .stream().map(DadosDetalhamentoUsuarioDto::new)
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(usuarios);
@@ -34,7 +34,7 @@ public class UsuariosController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity excluirUsuario(@PathVariable Long id, @RequestBody @Valid DadosExclusaoUsuarioDTO dados){
+    public ResponseEntity excluirUsuario(@PathVariable Long id, @RequestBody @Valid DadosExclusaoUsuarioDto dados){
         userGen.excluir(id, dados);
         return ResponseEntity.noContent().build();
     }

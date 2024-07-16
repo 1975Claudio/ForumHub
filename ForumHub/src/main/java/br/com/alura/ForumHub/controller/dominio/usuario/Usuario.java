@@ -1,5 +1,6 @@
 package br.com.alura.ForumHub.controller.dominio.usuario;
 
+import br.com.alura.ForumHub.controller.dominio.resposta.Resposta;
 import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosCadastroUsuariosDto;
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Collection;
 import java.util.List;

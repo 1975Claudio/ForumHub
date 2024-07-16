@@ -23,7 +23,7 @@ public class GerenciadorTopicoService {
 
     public DadosDetalhamentoTopicoDto criarTopico(DadosCadastroTopicoDto dados) {
 
-        if (!cursoRepository.existsById(dados.curso_id())) {
+        if (!cursoRepository.existsById(Long.valueOf(dados.curso_id()))) {
             throw new ValidacaoException("Curso não existe no sistema!");
         }
 
@@ -32,7 +32,7 @@ public class GerenciadorTopicoService {
         }
 
         var usuario = userRepository.getReferenceById(dados.usuario_id());
-        var curso = cursoRepository.getReferenceById(dados.curso_id());
+        var curso = cursoRepository.getReferenceById(Long.valueOf(dados.curso_id()));
 
         var topico = new Topico(usuario, curso, dados);
 

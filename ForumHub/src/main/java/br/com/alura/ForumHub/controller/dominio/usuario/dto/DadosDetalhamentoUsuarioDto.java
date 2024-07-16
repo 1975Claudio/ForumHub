@@ -3,15 +3,16 @@ package br.com.alura.ForumHub.controller.dominio.usuario.dto;
 import br.com.alura.ForumHub.controller.dominio.usuario.Usuario;
 
 
-public record DadosDetalhamentoUsuariosDto(
+public record DadosDetalhamentoUsuarioDto(
         Long id,
         String nome,
-        String email;
+        String email
 ) {
-    public DadosDetalhamentoUsuariosDto(Usuario usuario){
+    public DadosDetalhamentoUsuarioDto(Usuario usuario){
         this(usuario.getId(), usuario.getNome(), usuario.getEmail());
     }
-}
+
+   }
 
 
 

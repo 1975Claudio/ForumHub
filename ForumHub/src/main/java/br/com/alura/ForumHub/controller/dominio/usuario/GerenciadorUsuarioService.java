@@ -1,6 +1,6 @@
 package br.com.alura.ForumHub.controller.dominio.usuario;
 
-import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosExclusaoUsuarioDTO;
+import br.com.alura.ForumHub.controller.dominio.usuario.dto.DadosExclusaoUsuarioDto;
 import br.com.alura.ForumHub.infra.ValidacaoException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ public class GerenciadorUsuarioService {
     @Autowired
     UsuarioRepository repository;
 
-    public void excluir(Long id, @Valid DadosExclusaoUsuarioDTO dados) {
+    public void excluir(Long id, @Valid DadosExclusaoUsuarioDto dados) {
 
         Optional<Usuario> usuario = repository.findById(id);
 
