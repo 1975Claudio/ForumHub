@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfigurations {
 
-    @Autowired
+    @Autowired(required=true)
     private SecurityFilter securityFilter;
 
     @Bean
@@ -43,5 +43,9 @@ public class SecurityConfigurations {
     @Bean
     public PasswordEncoder verificaSenhasCryptografadas() {
         return new BCryptPasswordEncoder();
+    }
+    @Bean
+    public SecurityFilter securityFilter() {
+        return new SecurityFilter();
     }
 }
